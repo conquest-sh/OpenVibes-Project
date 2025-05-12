@@ -1,0 +1,24 @@
+{% extends 'blogs/base.html' %}
+
+{% block page_header %}
+    <div class="p-3 mb-4 bg-light border rounded-3">
+        <div class="container-fluid py-4">
+            <h1 class="display-3">Be part of a vibrant community where your words find a home.</h1>
+
+            <p class="lead">Open vibes is a warm, inviting weblog where anyone can freely share their thoughts,
+              stories, dreams, or random musings. Its simple, intuitive design lets you post effortlessly,
+              while a kind, inclusive community cheers you on.
+              Create your own space, connect through words,
+              and let your voice shine!.</p>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+        <span class="navbar-text me-2">Hello, {{ user.username }}.
+          </span></li>
+        {% else %}
+            <a class="btn btn-primary btn-lg mt-1"
+              href="{% url 'accounts:register' %}">Register &raquo;</a>
+        {% endif %}
+        </div>
+    </div>
+{% endblock page_header %}
+     

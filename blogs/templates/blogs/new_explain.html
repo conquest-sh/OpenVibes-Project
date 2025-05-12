@@ -1,0 +1,18 @@
+{% extends 'blogs/base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h2>Add a new explaination.</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <p><a href="{% url 'blogs:overal' overal.id %}">{{ overal }}</a></p>
+
+  <form action="{% url 'blogs:new_explain' overal.id %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Add a explaination" %}
+</form>
+
+{% endblock content %}

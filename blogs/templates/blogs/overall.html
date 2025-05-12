@@ -1,0 +1,21 @@
+{% extends 'blogs/base.html' %}
+
+{% block page_header %}
+  <h1>Overall blogs</h1>
+{% endblock page_header %}
+
+{% block content %}
+<ul class="list-group bprder-bottom pb-2 mb-4">
+    {% for overal in overall %}
+      <li class="list-group-item border-0">
+        <a href="{% url 'blogs:overal' overal.id %}">
+        {{ overal.name }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item border-0">No blogs have been added yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'blogs:new_overall' %}">Add a new overall</a>
+
+{% endblock content %}

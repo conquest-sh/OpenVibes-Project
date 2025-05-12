@@ -1,0 +1,29 @@
+{% extends 'blogs/base.html' %}
+
+
+{% block page_header %}
+  <h1>{{ overal.name }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+<p>Short Explanation:</p>
+<p>
+  <a href="{% url 'blogs:new_explain' overal.id %}">Add a new explanation</a>
+</p>
+
+    {% for explain in explains %}
+      <div class="card mb-3">
+        <!-- Card header with timestamp and edit link -->
+        <h4 class="card-header">
+          {{ explain.date_added|date:'M d, Y H:i' }}
+          <small><a href="{% url 'blogs:edit_overall' explain.id %}">
+            Edit overall</a></small>
+        </h4>
+        <div class="card-body">{{ explain.name|linebreaks }}</div>
+      </div>
+    {% empty %}
+      <li>No explanation have been added yet.</li>
+    {% endfor %}
+
+{% endblock content %}
