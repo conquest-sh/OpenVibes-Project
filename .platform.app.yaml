@@ -5,10 +5,10 @@ relationships:
     database: 'db:postgresql'
 
 web:
-    upstream:
-      socket_family:unix
-    commmands:
-      start: 'gunicorn -w 4 -b unix:$SOCKET blog.wsgi:application'
+    upstream: 
+        socket_family: unix
+    commands:
+        start: 'gunicorn -w 4 -b unix:$SOCKET blog.wsgi:application'
     locations:
       '/':
           passthru: true
