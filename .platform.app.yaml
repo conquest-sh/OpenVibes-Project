@@ -2,11 +2,9 @@ name: blog
 type: python:3.12
 
 relationships:
-    database: 'db:postgresql'
+  database: "pgsql:postgresql"
 
-database:
-  type: db:postgresql
-  disk: 512
+# You do not need the `database` section here anymore
 
 web:
     upstream:

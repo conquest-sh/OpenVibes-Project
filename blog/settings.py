@@ -127,12 +127,15 @@ LOGIN_REDIRECT_URL = 'blogs:index'
 LOGOUT_REDIRECT_URL = 'blogs:index'
 LOGIN_URL = 'accounts:login'
 
+from platformshconfig import Config
+
 config = Config()
 if config.is_valid_platform():
     ALLOWED_HOSTS.append('.platformsh.site')
 
     if config.appDir:
         STATIC_URL = Path(config.appDir) / 'static'
+
     if config.projectEntropy:
         SECRET_KEY = config.projectEntropy
 
@@ -140,11 +143,11 @@ if config.is_valid_platform():
         db_settings = config.credentials('database')
         DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.postgresql',  # PostgreSQL backend
-                'NAME': db_settings['path'],                # Database path
-                'USER': db_settings['username'],            # Username
-                'PASSWORD': db_settings['password'],        # Password
-                'HOST': db_settings['host'],                # Host
-                'PORT': db_settings['port'],                # Port
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': db_settings['path'],
+                'USER': db_settings['username'],
+                'PASSWORD': db_settings['password'],
+                'HOST': db_settings['host'],
+                'PORT': db_settings['port'],
             },
         }
