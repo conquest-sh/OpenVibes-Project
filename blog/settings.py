@@ -136,18 +136,19 @@ if config.is_valid_platform():
     if config.appDir:
         STATIC_URL = '/static/'
         STATIC_ROOT = str(BASE_DIR / 'staticfiles')
-        
+
     if config.projectEntropy:
         SECRET_KEY = config.projectEntropy
 
     if not config.in_build():
         db_settings = config.credentials('database')
         DATABASES = {
-            'default': {'ENGINE': 'django.db.backends.postgresql',
-                        'NAME': db_settings['path'],
-                        'USER': db_settings['username'],
-                        'PASSWORD': db_settings['password'],
-                        'HOST': db_settings['host'],
-                        'PORT': db_settings['port'],
-                        },
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': db_settings['path'],
+        'USER': db_settings['username'],
+        'PASSWORD': db_settings['password'],
+        'HOST': db_settings['host'],
+        'PORT': db_settings['port'],
+    },
+}
