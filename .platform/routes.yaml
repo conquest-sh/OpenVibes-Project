@@ -1,6 +1,6 @@
 'https://{default}':
     type: upstream
-    upstream: 'blog_project1:http'
+    upstream: 'blog:http'
 
 'https://www.{default}':
     type: redirect
