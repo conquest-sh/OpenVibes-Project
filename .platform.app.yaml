@@ -2,7 +2,7 @@ name: blog
 type: python:3.12
 
 relationships:
-  database: "pgsql:postgresql"
+  database: "database:postgresql"
 
 # You do not need the `database` section here anymore
 
@@ -25,6 +25,10 @@ mounts:
     'logs':
         source: local
         source_path: logs
+
+dependencies:
+  python3:
+    pip: "23.3.1"
 
 hooks:
     build: |
