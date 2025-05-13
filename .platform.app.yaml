@@ -1,5 +1,5 @@
 name: 'blog'
-type: 'python:3.13.3'
+type: 'python:3.12'
 
 relationships:
     database: 'db:postgresql'
@@ -17,7 +17,7 @@ web:
           expires: 1h
           allow: true
 
-disc: 512
+disk: 512
 
 mounts:
     'logs':
