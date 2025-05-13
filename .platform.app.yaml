@@ -2,7 +2,11 @@ name: blog
 type: python:3.12
 
 relationships:
-    database: 'database:postgresql'
+    database:
+      type: postgresql:13
+      disk: 512
+
+
 
 web:
     upstream:
