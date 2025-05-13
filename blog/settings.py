@@ -134,7 +134,9 @@ if config.is_valid_platform():
     ALLOWED_HOSTS.append('.platformsh.site')
 
     if config.appDir:
-        STATIC_URL = Path(config.appDir) / 'static'
+        STATIC_URL = '/static/'
+        STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+        
     if config.projectEntropy:
         SECRET_KEY = config.projectEntropy
 
