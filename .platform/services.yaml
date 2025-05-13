@@ -1,4 +1,4 @@
 # .platform/services.yaml
 database:
-  type: mysql:10.4
+  type: pgsql:postgresql
   disk: 512
