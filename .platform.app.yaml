@@ -4,7 +4,6 @@ type: python:3.12
 relationships:
     database:
       type: postgresql:13
-      disk: 512
 
 
 
