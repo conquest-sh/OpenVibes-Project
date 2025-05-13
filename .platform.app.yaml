@@ -2,7 +2,7 @@ name: blog
 type: python:3.12
 
 relationships:
-  database: 'pgsql:postgresql'
+  database: 'db:postgresql'
 
 web:
     upstream:
