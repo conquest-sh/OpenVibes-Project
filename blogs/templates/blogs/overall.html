@@ -9,7 +9,9 @@
     {% for overal in overall %}
       <li class="list-group-item border-0">
         <a href="{% url 'blogs:overal' overal.id %}">
-        {{ overal.name }}</a>
+        <li class="nav-item">
+        <span class="navbar-text me-2">{{ overal }}
+          </span></li>
       </li>
     {% empty %}
       <li class="list-group-item border-0">No blogs have been added yet.</li>
